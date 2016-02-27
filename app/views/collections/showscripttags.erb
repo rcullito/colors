@@ -1,0 +1,18 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Collections",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+  </script>
+<% end %>
+
+<h2>Existing Script Tags</h2>
+
+<ul>
+  <% @script_tags.each do |script_tag| %>
+    <li><%= script_tag.id %></li>
+  <% end %>
+</ul>
