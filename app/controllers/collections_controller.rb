@@ -1,4 +1,5 @@
 require 'json'
+require 'pp'
 
 class CollectionsController < AuthenticatedController
   def index
@@ -6,16 +7,28 @@ class CollectionsController < AuthenticatedController
 
     @variants = ShopifyAPI::Variant.find(:all, :params => {:limit => 10})
 
-    # puts type(@variants)
+    # @smart_collections = ShopifyAPI::SmartCollection.find(:all, :params => {:limit => 10})
+    #pp @smart_collections
+
+    # let's update the JS here and now
+
+    # first check that we can access the public address for the js file
+
+    new_script_tag = ShopifyAPI::ScriptTag.new
+    new_script_tag.event = "onload"
+    new_script_tag.src = "https://c2abe236.ngrok.io/color-dots.js"
+    new_script_tag.save
+  end
 
 
+  def showscripttags
 
-    # the field that displays the value is _
-    # but the field that displays the key is _, and this is what we want to group by
+    # extra_script_tag = ShopifyAPI::ScriptTag.find(19819841)
 
-    # test this out
+    # extra_script_tag.destroy
 
 
+    @script_tags = ShopifyAPI::ScriptTag.find(:all, :params => {:limit => 10})
   end
 
 
