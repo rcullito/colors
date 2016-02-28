@@ -48,8 +48,7 @@ var myAppJavaScript = function($){
   // $ in this scope references the jQuery object we'll use.
   // Don't use jQuery, or jQuery191, use the dollar sign.
   // Do this and do that, using $.
-  alert('we are here and it is working dynamically!!!')
-  $('body').append('<p>Your app is using jQuery version '+$.fn.jquery+'</p>');
+  // $('body').append('<p>Your app is using jQuery version '+$.fn.jquery+'</p>');
 
 
 
@@ -89,9 +88,12 @@ var myAppJavaScript = function($){
     'Wild Iris': '#B2C8DC'
   };
 
-  var colorOptionsContainer = d.children()[5];
-  var labels = $(colorOptionsContainer).children();
+  // this may be the third element on yellowberry's site
+  var colorOptionsContainer = $('.cf-options-container');
+  var labels = colorOptionsContainer.children();
+
   labels.each(function (index, label) {
+
     var spanElement= $(label).children()[1];
     var colorText = $(spanElement).text();
     var hexColor = colorMap[colorText];
@@ -100,6 +102,9 @@ var myAppJavaScript = function($){
     } else {
       $(label).hide();
     }
+
+
+
   });
 
 
