@@ -48,8 +48,62 @@ var myAppJavaScript = function($){
   // $ in this scope references the jQuery object we'll use.
   // Don't use jQuery, or jQuery191, use the dollar sign.
   // Do this and do that, using $.
-  alert('we are here and it is working!!!')
+  alert('we are here and it is working dynamically!!!')
   $('body').append('<p>Your app is using jQuery version '+$.fn.jquery+'</p>');
+
+
+
+
+  var colorMap = {
+    'Beach Glass': '#77D4CD',
+    'Blue Jay': '#1382B9',
+    'Caramel': '#C4A891',
+    'Cherry Stripe': '#9B2273',
+    'Coconut': '#DBDFEA',
+    'Coffee Bean': '#A77962',
+    'Coral Reef': '#F58172',
+    'Doe': '#CBC2B8',
+    'Fremont': '#137DB5',
+    'Frosting': '#DFE6F0',
+    'Geranium Pink': '#E39C9F',
+    'Huckleberry': '#6C55A3',
+    'Junebug': '#B5DAD2',
+    'Kit': '#E4DDD7:',
+    'Lime': '#C5E547',
+    'Laguna Green': '#D7F2EE',
+    'Lavender': '#997AB1',
+    'Lemonade': '#EBD579',
+    'Lily Pad': '#137F3B',
+    'Lollipop': '#D790CD',
+    'Lupin': '#D9D9F3',
+    'Marshmallow': '#D6DAE3',
+    'Moonbeam': '#08152E',
+    'Raindrop': '#A7C7DD',
+    'Sand Dune': '#C8B9A7',
+    'Snowflake': '#E4E7EC',
+    'Starry Night': '#1A1A1A',
+    'Sunflower': '#F2DA73',
+    'Teton Sky': '#C0DCD8',
+    'Timbr Wolf': '#5E7DB2',
+    'Watermelon': '#C33C78',
+    'Wild Iris': '#B2C8DC'
+  };
+
+  var colorOptionsContainer = d.children()[5];
+  var labels = $(colorOptionsContainer).children();
+  labels.each(function (index, label) {
+    var spanElement= $(label).children()[1];
+    var colorText = $(spanElement).text();
+    var hexColor = colorMap[colorText];
+    if (hexColor) {
+      $(spanElement).html("<span style='border-radius: 50%; display: inline-block; width: 20px; height: 20px; background: " + hexColor + "'></span>");
+    } else {
+      $(label).hide();
+    }
+  });
+
+
+
 };
 
 /* If jQuery has not yet been loaded or if it has but it's too old for our needs,
