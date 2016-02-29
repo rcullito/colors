@@ -1,11 +1,17 @@
 require 'json'
 require 'pp'
 
-class CollectionsController < AuthenticatedController
-  def index
-    @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
+class ScripttagsController < AuthenticatedController
 
-    @variants = ShopifyAPI::Variant.find(:all, :params => {:limit => 10})
+  def index
+    @script_tags = ShopifyAPI::ScriptTag.find(:all, :params => {:limit => 10})
+  end
+
+
+  def upload
+    # @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
+    #
+    # @variants = ShopifyAPI::Variant.find(:all, :params => {:limit => 10})
 
     # @smart_collections = ShopifyAPI::SmartCollection.find(:all, :params => {:limit => 10})
     #pp @smart_collections
@@ -21,14 +27,9 @@ class CollectionsController < AuthenticatedController
   end
 
 
-  def showscripttags
-
-    # extra_script_tag = ShopifyAPI::ScriptTag.find(19819841)
-
-    # extra_script_tag.destroy
-
-
-    @script_tags = ShopifyAPI::ScriptTag.find(:all, :params => {:limit => 10})
+  def delete
+    extra_script_tag = ShopifyAPI::ScriptTag.find(19819841)
+    extra_script_tag.destroy
   end
 
 

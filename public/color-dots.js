@@ -89,8 +89,12 @@ var myAppJavaScript = function($){
   };
 
   // this may be the third element on yellowberry's site
+
+  // wait a second before doing this
   var colorOptionsContainer = $('.cf-options-container');
   var labels = colorOptionsContainer.children();
+
+  console.log(labels);
 
   labels.each(function (index, label) {
 

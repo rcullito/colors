@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   root :to => 'home#index'
 
-  get 'collections' => 'collections#index'
-  get 'existingscripttags' => 'collections#showscripttags'
+  # get 'uploadscripttag' => 'scripttags#upload'
+  # get 'deletescripttag' => 'scripttags#delete'
+  get 'listscripttags' => 'scripttags#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
