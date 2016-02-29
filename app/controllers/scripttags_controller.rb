@@ -28,7 +28,7 @@ class ScripttagsController < AuthenticatedController
 
 
   def delete
-    extra_script_tag = ShopifyAPI::ScriptTag.find(19819841)
+    extra_script_tag = ShopifyAPI::ScriptTag.find(19819905)
     extra_script_tag.destroy
   end
 

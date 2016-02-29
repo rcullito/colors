@@ -88,28 +88,42 @@ var myAppJavaScript = function($){
     'Wild Iris': '#B2C8DC'
   };
 
-  // this may be the third element on yellowberry's site
+
 
   // wait a second before doing this
-  var colorOptionsContainer = $('.cf-options-container');
-  var labels = colorOptionsContainer.children();
 
-  console.log(labels);
+  var timeDelay = 500;
 
-  labels.each(function (index, label) {
+  var replaceNamesWithDots =  function() {
 
-    var spanElement= $(label).children()[1];
-    var colorText = $(spanElement).text();
-    var hexColor = colorMap[colorText];
-    if (hexColor) {
-      $(spanElement).html("<span style='border-radius: 50%; display: inline-block; width: 20px; height: 20px; background: " + hexColor + "'></span>");
-    } else {
-      $(label).hide();
-    }
+    //console.log(timeDelay + ' delay');
+    // this may be the third of these on yellowberry's site
+    var colorOptionsContainer = $('.cf-options-container')[2];
+
+    // console.log('color options container is');
+    // console.log(colorOptionsContainer);
+
+    var labels = $(colorOptionsContainer).children();
+
+    // console.log(labels);
+
+    labels.each(function (index, label) {
+
+      var spanElement= $(label).children()[1];
+      var colorText = $(spanElement).text();
+      var hexColor = colorMap[colorText];
+      if (hexColor) {
+        $(spanElement).html("<span style='border-radius: 50%; display: inline-block; width: 20px; height: 20px; background: " + hexColor + "'></span>");
+      } else {
+        $(label).hide();
+      }
+
+    });
+  };
+
+  window.setTimeout(replaceNamesWithDots, timeDelay);
 
 
-
-  });
 
 
 
