@@ -22,13 +22,14 @@ class ScripttagsController < AuthenticatedController
 
     new_script_tag = ShopifyAPI::ScriptTag.new
     new_script_tag.event = "onload"
-    new_script_tag.src = "https://c2abe236.ngrok.io/color-dots.js"
+    # new_script_tag.src = "https://c2abe236.ngrok.io/color-dots.js"
+    new_script_tag.src = "https://boiling-bastion-28357.herokuapp.com/color-dots.js"
     new_script_tag.save
   end
 
 
   def delete
-    extra_script_tag = ShopifyAPI::ScriptTag.find(19819905)
+    extra_script_tag = ShopifyAPI::ScriptTag.find(19902465)
     extra_script_tag.destroy
   end
 

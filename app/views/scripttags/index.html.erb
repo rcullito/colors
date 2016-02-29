@@ -13,6 +13,6 @@
 
 <ul>
   <% @script_tags.each do |script_tag| %>
-    <li><%= script_tag.id %></li>
+    <li><%= script_tag.id %>, <%= script_tag.src %></li>
   <% end %>
 </ul>
